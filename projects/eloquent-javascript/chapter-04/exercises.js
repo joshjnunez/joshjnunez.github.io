@@ -2,47 +2,102 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range() {
+// create a function called range with parameters (start, end) that takes first number and last number and returns array with numbers inbetween
 
+
+function range(start, end, step) {
+  let array = [];            // if start and end are equal to each other return an empty arrayy
+  if(start === end){
+   return array;
+ }
+  if (step === undefined){  //if undefined make step equal 1
+  step = 1;
+}
+  if (step > 0) {
+    for (let i = start; i <= end; i += step) array.push(i);
+  } else {  // deciding which way the range will face
+    for (let i = start; i >= end; i += step) array.push(i);
+  }
+  return array; // return array
+  
+  
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // sum /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function sum() {
-
+function sum(arrayOfNumbers) {
+  var sum = 0;
+for(let i = 0; i < arrayOfNumbers.length; i++) {
+  sum += arrayOfNumbers[i];
 }
+return sum;
+}
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArray ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArray() {
+function reverseArray(array) {
+  var reversedArr = [];
 
+for(let i = array.length-1; i >= 0 ; i--) {
+ reversedArr.push(array[i]); 
 }
+return reversedArr;
+}
+
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArrayInPlace() {
-
+function reverseArrayInPlace(array) {
+  for ( let i = 0; i < Math.floor(array.length / 2); i++) {
+  let xArray = array[i];
+  
+  array[i] = array[array.length - 1 - i];
+  
+  array[array.length - 1 - i] = xArray;
+}
+  return array; 
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function arrayToList() {
-
+function arrayToList(array) {
+  
+  var list = null;
+  
+  for(let i = array.length-1; i >= 0; i--) {
+    list = {
+      value: array[i],
+      rest: list
+    };
+  }
+    return list;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function listToArray() {
+function listToArray(list) {
+  var array = [];
+  var x = list;
+  
+  while(x) {
+    array.push(x.value);
+    x = x.rest;
+  }
+  return array;
 
 }
 
@@ -50,25 +105,50 @@ function listToArray() {
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function prepend() {
-
+function prepend(value, item) {
+  var newList = {value:value , rest: item};
+  return newList;
 }
+  
 
 ////////////////////////////////////////////////////////////////////////////////
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function nth() {
-
+function nth(list, number) {
+var listArray = listToArray(list);
+    return listArray[number];
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual() {
+function deepEqual(a,b) {
+    //first compare with triple equals to see if the two are the same type and value
+  if (a === b) return true;
+  //second if statement checks for null values and non-objects
+  if (a == null || typeof a != "object" ||
+      b == null || typeof b != "object")
+    return false;
+  //declare counters
+  var propsInA = 0, propsInB = 0;
+	//for-in loop counts the number of properties in a and b
+  for (var prop in a)
+    propsInA += 1;
 
+  for (var prop in b) {
+    propsInB += 1;
+    //if b has a prop not in a or if, upon recursive function all,
+    //the properties don't have the same values, return false
+    if (!(prop in a) || !deepEqual(a[prop], b[prop]))
+      return false;
+  }
+	//otherwise, return whether the number of properties are the same
+  return propsInA == propsInB;
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////

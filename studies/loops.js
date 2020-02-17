@@ -4,16 +4,19 @@
             different value
     
 The For Loop:
+** For Loops are used for running through an array.
+
 The for loop has the following syntax:
 
-for (statement 1; statement 2; statement 3) {
+for (let i = 0; i < array.length-1; i++) {
   // code block to be executed
 }
-Statement 1 is executed (one time) before the execution of the code block.
+let i = 0 //==> starting point of the loop.
 
-Statement 2 defines the condition for executing the code block.
+i < array.length-1 //==> ending point of the loop
 
-Statement 3 is executed (every time) after the code block has been executed.
+i++ //==> iterator that tells it to increment or decrement 
+
 
 
 The For/In Loop:
@@ -25,7 +28,7 @@ for(x in object) {
     
 The While Loop
 The while loop loops through a block of code as long as a specified
-condition is true.
+condition is true. Used when dealing directly with boolean value
 
 Syntax
 while (condition) {
@@ -38,9 +41,12 @@ while (condition) {
 
 //Examples: 
 
- ///Using a for-loop to console.log the numbers 1-5 in reverse 
-//start: 5
-//stop: 0
+ ///Using a for-loop to console.log the numbers 1-5 in reverse. loop backwards 
+ //over array
+//start: 5 ..... i = 5
+//stop: 0 ...... i > 0; loop will run for all numbers greater than 0, and
+//starting with 5
+// increment.... i-- increments down by one
 
 for(var i = 5; i >= 0; i--){
    console.log(i);

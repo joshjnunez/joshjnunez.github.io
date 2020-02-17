@@ -25,10 +25,16 @@ String Methods
     var stringOne = "Hello friends"
     var stringTwo = "How are you doing?"
     
-    console.log(stringOne + ", " + stringTwo) 
+    console.log(stringOne + ", " + stringTwo);
     //==> prints: Hello friends, How are you doing?
     
-    
+// The shorthand assignment operator += can also be used to concatenate strings.
+// adds and assigns
+
+stringOne += stringTwo;
+// same as:
+stringOne = stringOne + stringTwo;
+
 //String methods:
 
 //indexOf() - returns index (position) of a string

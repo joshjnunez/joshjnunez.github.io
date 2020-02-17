@@ -61,7 +61,7 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    return string.toUpperCase(0);
+    return string[0].toUpperCase() + string.substr(1,string.length);
     
 }
 
@@ -70,22 +70,41 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    
+     var splitString = string.toLowerCase().split(' ');
+   for (let i = 0; i < splitString.length; i++) {
+     
+       splitString[i] = splitString[i].charAt(0).toUpperCase() + splitString[i].substring(1);     
+   }
+   
+   return splitString.join(' '); 
 }
+    
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 7 - Welcome Message //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
+    let greeting = 'Welcome ';
+    
+    return greeting + object['name'].charAt(0).toUpperCase() + object['name'].slice(1) + '!';
+    
+    }
+    
 
-}
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 8 - Profile Info /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
+    
+    var sentence = ' is a ';
+    
+    return object['name'].charAt(0).toUpperCase() + object['name'].slice(1) + sentence + object['species'].charAt(0).toUpperCase() + object['species'].slice(1); 
+    
 
 }
 
@@ -94,6 +113,18 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
+    
+    if (object['noises'] === undefined) {
+        return 'there are no noises';
+    }
+    else if (object['noises'].length === 0) {
+        return 'there are no noises';
+    } else if (Array.isArray(object['noises'])) {
+        return object['noises'].join(' '); 
+    }
+    
+    // } else if (object['noises'] !== []) {
+      
 
 }
 
@@ -102,7 +133,11 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
+    if (string.includes(word)) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -110,30 +145,84 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+    object['friends'].push(name);
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 12 - Is Friend ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function isFriend(name, object) {
+//create an if else statement within the function
 
+// if the friends array === undefined, return false
+
+//
+
+
+
+function isFriend(name, object) {
+    
+   if(object.friends) {
+       for(let i = 0; i < object.friends.length; i++) {
+          if (object.friends[i] === name) {
+              return true;
+          }
+       }
+       
+   }
+  return false;
+  
+  
 }
+  
+  
+  
+   
+
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
+ var rejectArray = [];
+ var result = [];
+ 
+ for(let i = 0; i < array.length; i++) {
+    if(array[i].name === name) {
+    var current = array[i];
+    } else { 
+        rejectArray.push(array[i].name);
+  }
+ } 
 
+    if(current === null) {
+        return rejectArray;
+    }
+    for(var i = 0; i< rejectArray.length; i++) {
+        if(current.friends.indexOf(rejectArray[i]) == -1) {
+            result.push(rejectArray[i]);
+        }
+    }
+    return result;
 }
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+// should update the property key of object with key on new value. if key does not exist create it
+
+
 function updateObject(object, key, value) {
+    
+    object[key] = value;
+    
+    return object;
+    
 
 }
 
@@ -142,7 +231,15 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
+  
+ 
+for(let i = 0; i < array.length; i++) {
+           delete object[array[i]];
+       }
+     
 
+ 
+    
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -151,7 +248,15 @@ function removeProperties(object, array) {
 
 function dedup(array) {
 
+    let newArray = array.filter(function(elem, index, self) {
+        return index == self.indexOf(elem);
+    });
+    return newArray;
 }
+
+
+
+
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////

@@ -44,6 +44,11 @@
             condition is false
             Use switch to specify many alternative blocks of code to be 
             executed
+            
+    
+** NOTE: There can be only one if statement in a chain.
+         There can be unlimited else if statements in a chain
+         There can be only one else statement in a chain
         
 
 */
@@ -74,6 +79,24 @@ if(gradeOne < 50) {
     /*The switch expression is evaluated once and the value of the expression
     is compared with the case values. If it matches values the code of block
     will run that is for that case. 
+    
+    * switch statements contain 3 keywords. 
+        - switch - this keyword is followed by ( ). The switch statement 
+                    evaluates the expression in the paranthesis. The value of 
+                    the expression is compared against the following cases
+        - case - this keyword offers different expressions which the switch word
+                    is compared to. The amount of case words is unlimited though
+                    you must have atleast one case in the body of the switch 
+                    statement
+        - break - this keyword breaks out the switch block. when the program 
+                    reads this word it will stop execution of code. Without the
+                    break, the nexr blosk in the switch statement is executed.
+        - default - this keyword tells the program to run code if no case 
+                    matches. There may be only one default keyword. It is 
+                    optional but recomended. 
+    
+    
+    
     */
     var favNumber = 3;
     switch(favNumber) {
@@ -92,4 +115,10 @@ if(gradeOne < 50) {
     
     // prints: 'Yes'
     
+    
+    // ** NOTE: It is preferred to use switch statements because it makes for 
+    //         better readibility of code. However, if you are testing ranges of
+    //         values or conditions, use an if else statement. Switch statements
+    //         are based on single integer or single values. 
+    //         Though, if else statements are better for boolean values.
     

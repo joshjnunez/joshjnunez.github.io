@@ -12,6 +12,21 @@
 *
 * 2. There are 2 phases of using variables: declaration and 
 *     initialization (or assignment).
+
+
+
+Scope of variables: 
+var declarations are globally scoped or function/locally scoped. It is globally
+scoped when a var variable is declared outside a function. This means that any
+variable that is declared with var outside a function block is available for use
+in the whole window. var is function scoped when it is declared within a 
+function. This means that it is available and can be accessed only within that 
+function.
+
+let is block scoped
+
+const declarations are block scoped
+
 */
 
 // 1. declaration //
@@ -39,6 +54,8 @@ var myVariable = true;
 myVariable = "someString";
 
 // 4. Variables can also be declared using let & const
+// let can be reassigned
+//const can not be reassigned
 let firstName = 'Josh';
 const lastName = 'Nunez';
 
@@ -50,6 +67,9 @@ console.log(lastName); // prints ==> Nunez
 * In JS, all variable declarations are moved to the top of the current scope.
 * This is called hoisting. Hoisting allows a variable to be declared once 
 *  it's been used or used before it has been declared. 
+* the code block is taken to the top when hoisted (var). Howver, let and const
+* can't be hoisted the same as var. 
+
 */
 
 // Example:

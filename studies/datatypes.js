@@ -68,8 +68,8 @@ console.log(stringTwo[0]); //==> prints W to the console
 
 /* 3. Booleans
         - Booleans are true or false values
-        - everything with a value is considered true
-        - everything without a value returns false
+        - everything with a value is considered truthy
+        - everything without a value returns falsy
         
         - comparison operators > < = are used with booleans to return true or
             false values
@@ -253,3 +253,38 @@ subtract(10,5); // output = 5
 
 
 */
+
+// Example: Undefined
+var josh;
+
+console.log(josh); // prints ==> undefined
+
+// Example: null
+
+var josh2 = null;
+
+console.log(josh2); // prints ==> null
+
+var josh3 = null;
+
+console.log(josh3 + 5); // prints ==> 5
+
+// Example: NaN
+0/0; // prints ==> NaN
+
+// Example: Infinity, -Infinity
+
+Infinity + Infinity; // prints ==> Infinity
+
+1 / -0; // prints ==> -Infinity
+
+// Example: Copy by value, copy by reference
+// by value:
+var variableOne = 75; // copy by value;
+
+//by reference:
+var myName = {};
+function myNameIs(aName){
+  aName.firstName = "Josh";
+}
+myNameIs(myName);console.log(myName); // Object {firstName: "Josh"}

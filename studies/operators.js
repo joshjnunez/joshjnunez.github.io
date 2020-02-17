@@ -1,4 +1,5 @@
 /* OPERATORS
+Used to assign values, compare values, or perform arithemtic 
         - assignment 
         - arithmetic
         - comparison
@@ -26,10 +27,11 @@ Assignment	                     x = y	            x = y
     Remainder assignment	     x %= y	            x = x % y
 
 Comparison
-
+* compares two valuesv
+var x = 5
 Operator	Description	            Comparing	    Returns
- ==          equal to            	x == 8	        false	
- ===	        equal value and     x === 5	        true
+ ==          loose comparison       x == 8	        false	
+ ===	     strict comparison      x === 5	        true
             equal type		
  !=	        not equal	            x != 8	        true	
  !==	        not equal value or  x !== 5	        false
@@ -41,7 +43,7 @@ Operator	Description	            Comparing	    Returns
  <=	        less than or equal to	x <= 8          true
 
 
-    Logical - determines the logic between two variables
+    Logical - determines the logic between two variables.
 
     Logical 
     Operator	Description	                Example	
@@ -51,6 +53,7 @@ Operator	Description	            Comparing	    Returns
 
 
 //Unanry- takes one (uni) argument and performs operation // (!,typeOf,-)
+        // deleter, typeof, instanceof
 //ternary- takes 3 operands(arguments) followed by question mark and then an
             expression to see if the condition is truthy followed by colon: 
             and the expression to execute falsy
@@ -59,6 +62,24 @@ Operator	Description	            Comparing	    Returns
 
 //Examples:
 
+//assigmemt operator
 var x = 5;
+// comparison operator
 console.log(x>4); //==> prints true
+
+//arithmetic operator
+5 + 5; // prints ==> 10
+
+//logical operator
+var varOne = 4;
+if (5 > varOne && varOne > 2) {
+    return true;
+}
+// true
+
+//unary
+
+var y = 'josh';
+typeof y; // prints ==> string
+
 

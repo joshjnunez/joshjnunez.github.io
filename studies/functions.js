@@ -57,8 +57,20 @@ function name(parameter1, parameter2, parameter3) {
             
             5,5 = placeholders (arguments take the place)
 
-Scope: Functions can see and modify variables in parent or global scopes. 
+SCOPE:
+Functions can see and modify variables in parent or global scopes. 
 The inverse is NOT true.
+
+        Variables declared within a JavaScript function, become LOCAL to the 
+        function.
+
+        Local variables have Function scope: They can only be accessed from 
+        within the function
+        
+        Scope determines the accessibility (visibility) of these variables.
+
+        Variables defined inside a function are not accessible (visible)
+        from outside the function.
 
 
 When you create the parameters for a function you can choose to decide which 
@@ -68,6 +80,27 @@ the function will output. The JavaScript program will ignore the others.
 Closures: Functions form closures around the data they house. If an object
 returned from the Function and is held in memory somewhere (referenced), 
 that closure stays ALIVE, and data can continue to exist in these closures! 
+
+
+Functions Assigned to a Variable
+
+function expression
+
+var funtionOne = function(param) {
+    *code*
+}
+
+vs
+
+function declaration
+
+function functionOne (param) {
+    *code*
+}
+
+
+
+
 
 */
 
@@ -102,3 +135,51 @@ divide4(20);
  test(0);
 
 //==> different arguments passed result in different outputs being logged.
+
+/* A function can take no inputs and give no outputs. 
+    - A function does not necessarily have to take any parameters or inputs.
+    - similary, you do not have to return any function to give output
+*/
+
+// Example:
+
+function hello () {
+    return true;
+}
+
+hello(); // prints ==> true
+
+///
+
+function goodbye(param1, param2) {
+    param1 + param2;
+}
+
+goodbye(1,2); // does not execute
+
+
+// Example: Scope
+
+// code here can NOT use carName
+
+function myFunction() {
+  
+  var carName = "Volvo"; // code here CAN use carName
+
+}
+
+
+// Example: closure
+
+var add = (function () {
+  var counter = 0;
+  return function () {counter += 1; return counter}
+})();
+
+add();
+add();
+add();
+
+// the counter is a function within the main function. this is referred to as 
+//  closure since it can only be accessed by calling the main function add()
+
