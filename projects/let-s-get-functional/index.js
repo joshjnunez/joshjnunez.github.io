@@ -39,8 +39,54 @@ var femaleCount = function(array) {
 };
 
 var oldestCustomer = function (array) {
-    console.log(array);
+  
+  var nameArray = _.pluck(array, 'name');
+  var ageArray = _.pluck(array, 'age');
+  
+  var oldestAge = Math.max(...ageArray);
+  
+  for (let i = 0; i < nameArray.length; i++) {
+      if(oldestAge === ageArray[i]) {
+          return nameArray[i];
+      }
+  }
+  
+
 };
+  
+//   var oldestPerson = array[0];
+  
+//   for (let i = 0; i < array.length; i++) {
+//       if(oldestPerson.age < array[i].age) {
+//           oldestPerson = array[i];
+//       }
+     
+//   }
+//      return oldestPerson.name;
+  
+// }; 
+    // console.log(array);
+// var ageArr = []; // create an empty array to store all ages
+// for(let i = 0; i < array.length; i++){ //loop through array and use bracket/dot notation to find the age values
+//   var ageOf = array[i].age;
+//       ageArr.push(ageOf); // push ages into new array
+//       var maxAge = Math.max(ageArr); // use math.max function to find largest value in the array
+      
+//   }
+//   for(let i = 0; i < array.length; i++){ // loop through array 
+//   if (array[i].age === maxAge) {
+//     // if age is equal to max age,
+//     // console.log(maxAge);
+//     var nameOf = array[i].name;
+//     return nameOf; // return name;
+//   }
+  
+//   }
+    
+    
+    
+    
+// };
 
 var youngestCustomer;
 
