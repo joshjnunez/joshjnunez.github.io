@@ -2,13 +2,14 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-// create a function called range with parameters (start, end) that takes first number and last number and returns array with numbers inbetween
+// create a function called range with parameters (start, end) that takes first 
+  // number and last number and returns array with numbers inbetween
 
 
 function range(start, end, step) {
-  let array = [];            // if start and end are equal to each other return an empty arrayy
+  let array = [];
   if(start === end){
-   return array;
+   return array;//if start and end are equal to each other return an empty array
  }
   if (step === undefined){  //if undefined make step equal 1
   step = 1;
@@ -27,6 +28,13 @@ function range(start, end, step) {
 // sum /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
+// declare var sum = 0
+
+// loop through arrayOfNumbers 
+// use addition operator to add sum + arrayOfNumbers[i] (whatever number is i at the time of the loop)
+
+//return sum gives you new value of sum
+
 function sum(arrayOfNumbers) {
   var sum = 0;
 for(let i = 0; i < arrayOfNumbers.length; i++) {
@@ -40,6 +48,22 @@ return sum;
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArray ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+
+// declare a function called reverseArray that takes one parameter,an array
+
+// declare a var within the function and assign to an array literal
+
+// use a for loop to loop through array,
+// push numbers in reverse to your new array that was declared.
+
+// NOTE, it is a reversed array so for your loop...
+  //start: array.length-1
+  //stop: 0
+  // iterate i--
+  
+// return new array
+
+
 
 function reverseArray(array) {
   var reversedArr = [];
@@ -56,6 +80,10 @@ return reversedArr;
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+
+// reverse array with a for loop. 
+// this time use math.floor method which returns the largest integer less than or equal to a given number.
+
 
 function reverseArrayInPlace(array) {
   for ( let i = 0; i < Math.floor(array.length / 2); i++) {
@@ -74,15 +102,15 @@ function reverseArrayInPlace(array) {
 
 function arrayToList(array) {
   
-  var list = null;
+  var list = null; // set new var list = null
   
-  for(let i = array.length-1; i >= 0; i--) {
+  for(let i = array.length-1; i >= 0; i--) { // create an object by reassign value of list within the for loop
     list = {
       value: array[i],
       rest: list
     };
   }
-    return list;
+    return list; //return list
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -90,14 +118,14 @@ function arrayToList(array) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function listToArray(list) {
-  var array = [];
+  var array = []; // declare array literal
   var x = list;
   
   while(x) {
-    array.push(x.value);
+    array.push(x.value); // push values in array 
     x = x.rest;
   }
-  return array;
+  return array; //return array
 
 }
 
@@ -105,8 +133,15 @@ function listToArray(list) {
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
+// declare var newList
+// assign newList to an object with value and item as key value pairs
+
+//return newList
+
 function prepend(value, item) {
-  var newList = {value:value , rest: item};
+  var newList = {
+    value:value,
+    rest: item};
   return newList;
 }
   
@@ -115,6 +150,10 @@ function prepend(value, item) {
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
+// declare var listArray = listToArray(list) // the function we created previously
+// use bracket notation to access number within listArray function
+
+//return listArray[number]
 function nth(list, number) {
 var listArray = listToArray(list);
     return listArray[number];

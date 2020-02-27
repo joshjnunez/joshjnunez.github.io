@@ -42,6 +42,13 @@ isEven(-1);
 // countChars //////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
+// declare var count and assign value to 0 
+// use for loop to loop through string 
+// use charAt(i) to locate the character within the string, set strictly equal to character parameter inside if condition of the loop
+  // count should be iterated by one each time it loops, count++
+  
+// return count
+
 function countChars(string, character) {
     var count = 0;
     for (let i = 0; i < string.length; i++) {
@@ -56,6 +63,15 @@ function countChars(string, character) {
 ////////////////////////////////////////////////////////////////////////////////
 // countBs /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+
+// declare var count and assign value to 0 
+// use for loop to loop through string 
+
+// similar to function above execpet set your condition strictly equal to 'B'
+
+//return count
+
+
 
 function countBs(string) {
     var count = 0;

@@ -69,6 +69,10 @@ console.log(x>4); //==> prints true
 
 //arithmetic operator
 5 + 5; // prints ==> 10
+6 - 1; // prints ==> 5
+2 * 3; // prints ==> 6
+12 / 4; // prints ==> 3
+26 % 5; // prints ==> 1 (the remainder)
 
 //logical operator
 var varOne = 4;
