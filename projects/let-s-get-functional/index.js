@@ -193,6 +193,7 @@ var genderArr = [];
 
 for(let i = 0; i < array.length; i++) {
    genderArr.push(array[i].gender);
+   console.log(genderArr);
 }
 
 return _.reduce(genderArr, function(accumulator, gender){
@@ -208,6 +209,7 @@ return accumulator;
 accumulator[gender] = 1;
 return accumulator;
   }, {});
+  
 };
 
 

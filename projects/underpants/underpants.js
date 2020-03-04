@@ -114,7 +114,7 @@ _.first = function(array,number) {
     } else if (number < 0) { //if number is negative, return []
         return [];
     } else {
-        array.splice(number,array.length); // splice method allows us to find where the first occurence of number item and return array, resulting in only that number
+       array.splice(number, array.length); // splice method allows us to find where the first occurence of number item and return array, resulting in only that number
         return array;
     }
 };
